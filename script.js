@@ -69,16 +69,6 @@ function updateUI() {
     }
 }
 
-function createEasternTime(date, hour, minute = 0) {
-    const easternDate = new Date(date);
-    easternDate.setHours(hour, minute, 0, 0);
-    
-    const timezoneOffset = 5;
-    easternDate.setUTCHours(easternDate.getHours() + timezoneOffset, easternDate.getMinutes(), 0, 0);
-    
-    return easternDate;
-}
-
 function showPresentationDetails() {
     const detailsDiv = document.getElementById('presentation-details');
     detailsDiv.style.display = 'block';
@@ -100,11 +90,10 @@ function addToGoogleCalendar() {
     const today = new Date();
     
     const startTime = new Date(today);
-    const isEST = isEasternStandardTime(today);
-    startTime.setUTCHours(isEST ? 21 : 20, 0, 0, 0);
+    startTime.setUTCHours(21, 0, 0, 0);
     
     const endTime = new Date(today);
-    endTime.setUTCHours(isEST ? 22 : 21, 0, 0, 0);
+    endTime.setUTCHours(22, 0, 0, 0);
     
     const title = "Long's Intern Presentation";
     const details = "Join Long's intern presentation!\\n\\n⏰ Time: 4:00 PM - 5:00 PM Eastern Time\\n🔗 Zoom Link: https://alchemy.zoom.us/j/89703048511?jst=2";
