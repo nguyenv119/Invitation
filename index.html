@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/svg+xml" href="./images/long_ironman.png" />
+        <link rel="stylesheet" href="styles.css">
+        <title>Intern Presentation Invitation</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="Mainprompt">
+                <img class="image" src="images/long_ironman.png"></img>
+                <h1 class="hh" id="name">You're Invited!</h1>
+                <p class="pp" id="question">Will you come to my presentation?</p>
+                <div class="buttons">
+                    <button id="noButton">No chance</button>
+                    <button id="yesButton">Count Me In!</button>
+                </div>
+                <div class="presentation-details" id="presentation-details" style="display: none;">
+                    <h2>📅 Presentation Details</h2>
+                    <p><strong>Date:</strong> <span id="event-date"></span></p>
+                    <p><strong>Time:</strong> 4:00 PM - 5:00 PM EST</p>
+                    <p><strong>Zoom Link:</strong> <a href="https://alchemy.zoom.us/j/89703048511?jst=2" target="_blank">Join Meeting</a></p>
+                    <button id="addToCalendar" class="calendar-button">📅 Add to Google Calendar</button>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
