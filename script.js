@@ -73,7 +73,7 @@ function showPresentationDetails() {
     const detailsDiv = document.getElementById('presentation-details');
     detailsDiv.style.display = 'block';
     
-    const eventDate = new Date('2025-08-22');
+    const eventDate = new Date('2025-08-21');
     document.getElementById('event-date').textContent = eventDate.toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
@@ -87,15 +87,15 @@ function showPresentationDetails() {
 }
 
 function addToGoogleCalendar() {
-    const presentationDate = new Date('2025-08-22');
+    const presentationDate = new Date('2025-08-21');
     
     const startTime = new Date(presentationDate);
-    startTime.setUTCHours(20, 0, 0, 0); // 4:00 PM EDT (August uses EDT, not EST)
+    startTime.setUTCHours(20, 0, 0, 0);
     
     const endTime = new Date(presentationDate);
-    endTime.setUTCHours(21, 0, 0, 0); // 5:00 PM EDT
+    endTime.setUTCHours(21, 0, 0, 0);
     
-    const title = "Intern Presentation";
+    const title = "Long's Intern Presentation";
     const details = "Join my intern presentation!\\n\\n⏰ Time: 4:00 PM - 5:00 PM Eastern Time (EST/EDT)\\n🔗 Zoom Link: https://alchemy.zoom.us/j/89703048511?jst=2\\n\\n⚠️ Note: Please verify the time in your timezone!";
     const location = "Zoom Meeting";
     
