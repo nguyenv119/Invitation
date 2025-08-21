@@ -69,11 +69,21 @@ function updateUI() {
     }
 }
 
+function createEasternTime(date, hour, minute = 0) {
+    const easternDate = new Date(date);
+    easternDate.setHours(hour, minute, 0, 0);
+    
+    const timezoneOffset = 5;
+    easternDate.setUTCHours(easternDate.getHours() + timezoneOffset, easternDate.getMinutes(), 0, 0);
+    
+    return easternDate;
+}
+
 function showPresentationDetails() {
     const detailsDiv = document.getElementById('presentation-details');
     detailsDiv.style.display = 'block';
     
-    const eventDate = new Date('2025-08-21');
+    const eventDate = new Date();
     document.getElementById('event-date').textContent = eventDate.toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
@@ -87,16 +97,17 @@ function showPresentationDetails() {
 }
 
 function addToGoogleCalendar() {
-    const presentationDate = new Date('2025-08-21');
+    const today = new Date();
     
-    const startTime = new Date(presentationDate);
-    startTime.setUTCHours(20, 0, 0, 0);
+    const startTime = new Date(today);
+    const isEST = isEasternStandardTime(today);
+    startTime.setUTCHours(isEST ? 21 : 20, 0, 0, 0);
     
-    const endTime = new Date(presentationDate);
-    endTime.setUTCHours(21, 0, 0, 0);
+    const endTime = new Date(today);
+    endTime.setUTCHours(isEST ? 22 : 21, 0, 0, 0);
     
     const title = "Long's Intern Presentation";
-    const details = "Join my intern presentation!\\n\\n⏰ Time: 4:00 PM - 5:00 PM Eastern Time (EST/EDT)\\n🔗 Zoom Link: https://alchemy.zoom.us/j/89703048511?jst=2\\n\\n⚠️ Note: Please verify the time in your timezone!";
+    const details = "Join Long's intern presentation!\\n\\n⏰ Time: 4:00 PM - 5:00 PM Eastern Time\\n🔗 Zoom Link: https://alchemy.zoom.us/j/89703048511?jst=2";
     const location = "Zoom Meeting";
     
     const formatDate = (date) => {
